@@ -1,7 +1,7 @@
             --------------------------------------------------
             csshX - Cluster SSH tool for Mac OS X Terminal.app
             --------------------------------------------------
-            Copyright 2011 by Gavin Brock   <gbrock@cpan.org>
+            Copyright 2011 by Gavin Brock    <gbrock@cpan.org>
             --------------------------------------------------
 
 
@@ -14,6 +14,9 @@ convenience.
 The software has been tested on Mac OS X 10.5, 10.6 and 10.7 with the default
 Perl installation - no additional Perl modules are required.
 
+This version includes additional changes that might affect those older
+versions and that hasn't been so throroughtly tested, but that were needed
+for macOS 10.12 and had been tested in a couple of machines running 10.12.6
 
 DOCUMENTATION:
 
@@ -52,4 +55,4 @@ CREDITS:
 Thanks to everyone for the suggestions and bug reports. That's what makes
 coding fun. In addition, I would like to thank the following people for their
 patches and code: Eric Lubow, mtbeedee, Mitch Silverstein, Robin Stephenson, 
-Chris Yunker, Song Gao and Jean-Sebastien Morisset.
+Chris Yunker, Song Gao, Jean-Sebastien Morisset and Brian Yarger

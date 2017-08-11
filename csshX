@@ -12,7 +12,7 @@
 use strict;
 use warnings;
 
-use version; (our $VERSION = '$Rev: 0.74-37-g26b59f6$') =~ s/\$Rev:\s*(.*)\$/$1/;
+use version; (our $VERSION = '$Rev: 0.74-39-g0ad095b$') =~ s/\$Rev:\s*(.*)\$/$1/;
 
 my $config; # Global configuration object..
 
@@ -1308,10 +1308,8 @@ sub new {
         $slave->set_space($config->space) if $config->space;
         $slave->set_settings_set($config->slave_settings_set)
             if $config->slave_settings_set;
-        # sleep for ten milliseconds to avoid DOS detection
-        if ($config->pause_ms > 0) {
-            select(undef, undef, undef, $config->pause_ms / 1000);
-        }
+        my $pause_ms = $config->pause_ms;
+        select(undef, undef, undef, $pause_ms / 1000) if $pause_ms;
     }
     $greeting .= "done\n";
 
@@ -2456,7 +2454,9 @@ as opposed to the default
 
 =item B<--pause_ms>, B<--pm> I<number>
 
-Pause this many miliiseconds after each window is created.  Helpful for avoiding denial of service from sshd when using a jump host for lots of connections.
+Pause this many milliseconds after each window is created.
+
+Helpful for avoiding DOS from sshd when using a jump host.
 
 The value is in milliseconds. (default: 0)
 
