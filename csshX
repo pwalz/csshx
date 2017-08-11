@@ -12,7 +12,7 @@
 use strict;
 use warnings;
 
-use version; (our $VERSION = '$Rev: 0.74-39-g0ad095b$') =~ s/\$Rev:\s*(.*)\$/$1/;
+use version; (our $VERSION = '$Rev: 0.74-40-g3f4ae03$') =~ s/\$Rev:\s*(.*)\$/$1/;
 
 my $config; # Global configuration object..
 
@@ -1141,10 +1141,9 @@ sub grid {
             $window->winobj->setVisible_(0);
             $window->winobj->setMiniaturized_(0);
             $window->winobj->setSize_(ObjCStruct::NSSize->new($width,$height));
-            $window->winobj->setOrigin_(ObjCStruct::NSPoint->new($x,$y));
             $window->winobj->setFrontmost_(1);
-            # Set the origin again - since it only works when the window
-            # is frontmost. Doing it in two steps is less flickery.
+            # Setting the origin only works when the window is frontmost.
+            # Arranging it in two steps is less flickery.
             $window->winobj->setOrigin_(ObjCStruct::NSPoint->new($x,$y));
         };
 
