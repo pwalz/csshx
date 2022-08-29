@@ -1231,8 +1231,8 @@ sub parse_user_host_port {
 
 package CsshX::Launcher;
 
-use base    qw(CsshX::Socket::Selectable);
-use POSIX   qw(tmpnam);
+use base qw(CsshX::Socket::Selectable);
+use File::Temp qw(tmpnam);
 use FindBin qw($Bin $Script);;
 
 sub new {
