@@ -88,15 +88,37 @@ sub new {
 
     # Command line options - must map to config keys
     GetOptions($obj, 
-        'config|c=s@', 'login|l=s',    'master',         'slave',
-        'sock=s',      'slavehost=s',  'launchpid=s',    'slaveid=s',
-        'tile_x|x=i',  'tile_y|y=i',   'ping_test|ping', 'ping_timeout=i',
-        'screen=s',    'space=i',      'ssh_args=s',     'debug:+',
-        'session_max=i', 'help|h',     'man|m',          'version|v',
-        'ssh=s',       'hosts=s@',     'remote_command=s','no_growl',
-        'master_settings_set|mss=s',   'slave_settings_set|sss=s',
-        'interleave|i=i', 'sorthosts', 'list_clusters', 'bash_env',
-        'pause_ms|pm=i'
+        'config|c=s@',
+        'login|l=s',
+        'master',
+        'slave',
+        'sock=s',
+        'slavehost=s',
+        'launchpid=s',
+        'slaveid=s',
+        'tile_x|tile-x|x=i',
+        'tile_y|tile-y|y=i',
+        'ping_test|ping-test|ping',
+        'ping_timeout|ping-timeout=i',
+        'screen=s',
+        'space=i',
+        'ssh_args|ssh-args=s',
+        'debug:+',
+        'session_max|session-max=i',
+        'help|h',
+        'man|m',
+        'version|v',
+        'ssh=s',
+        'hosts=s@',
+        'remote_command|remote-command=s',
+        'no_growl|no-growl',
+        'master_settings_set|master-settings-set|mss=s',
+        'slave_settings_set|slave-settings-set|sss=s',
+        'interleave|i=i',
+        'sorthosts',
+        'list_clusters|list-clusters',
+        'bash_env|bash-env',
+        'pause_ms|pause-ms|pm=i'
     ) || $obj->pod(-msg => "$0: bad usage\n");
 
     # Load any extra configs specified in config file or command line
@@ -2315,6 +2337,9 @@ I<user@>. Similarly, appending I<:port> will set the port to ssh to.
 You can also use hostname ranges, to specify many hosts.
 
 =head1 OPTIONS
+
+For long option names that contain underscores, hyphens can be used in place of
+underscores.
 
 =over 4
 
